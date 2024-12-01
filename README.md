@@ -1,1 +1,1 @@
-<details><summary>一</summary></details>
+<details><summary>一</summary>这是一个折叠</details>
