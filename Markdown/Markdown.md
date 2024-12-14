@@ -107,6 +107,9 @@ summary:折叠语法展示的摘要
 
 # 12. 使用变量给链接赋值
 ## 
+### 注意: 变量赋值那一行上边要留空一行
+### 变量名和变量值一样时可以只打一个单词(变量名)
+
 实例如下：
 \[我的github仓库]\[github]
 [我的github仓库][github]
@@ -118,6 +121,20 @@ summary:折叠语法展示的摘要
 
 [github]: https://github.com/k1e2q3i4n5g6
 [image]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-05_13-06-04.png
+
+### 变量名和变量值一样时
+
+!\[image]
+![image]
+
+### 留空
+!\[](../image\Snipaste_2024-12-14_14-59-45.png)
+![Snipaste_2024-12-14_14-59-45.png](https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-14_14-59-45.png)
+
+### 不留空
+!\[](../image\Snipaste_2024-12-14_15-00-50.png)
+![Snipaste_2024-12-14_15-00-50.png](https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-14_15-00-50.png)
+
 
 ---
 
