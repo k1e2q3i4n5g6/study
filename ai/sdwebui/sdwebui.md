@@ -1,6 +1,19 @@
 # <center>在[这里][地址]学习</center>
 
 ## <ins>提示词</ins>
+- ### ==提示词权重：==
+  - ### 提示词越靠前权重越大
+  - ### <ins>(prompts:1.5)1.5倍权重、(((prompts))) 1.1*1.1*1.1倍、{{prompts}} 1.05*1.05倍、\[\[\[prompts]]] 0.9*\*0.9*0.9倍</ins>
+  - ### 并列：混合|混合 prompts、次序：[先生成|后生成]prompts、进程：(达到百分之八十前生成:达到百分之八十后生成:0.8)、[到百分之八十停止生成prompts::0.8]
+  - > ### BREAK这个词会直接占满当前剩下的token，后面的提示词将在第二段clip中处理。AI在生成图像的时候会将一些提示词的特征放到其他的物品上，例如我在提示词中写了white clothes和Flower background，那么很有可能在衣服上出现花的装饰。如果我们不想在衣服上出现花的装饰，那么比较简单的方法就是把这两个词放到两段clip中处理
+  - ### 负面提示词不是越多越好，负面提示词多少都会对画面产生影响
+
+### [原理][引用1]：
+  - > ①首先我们输入的提示词（prompt）会首先进入TE（TextEncoder），而clip就是stable diffusion所使用的TE。TE这部分的作用就是把tag转化成U-net网络能理解的embedding形式，当然了，我们平时用的emb模型，就是一种自然语言很难表达的promot。（简单的说就是将“人话”转换成AI能够理解的语言）
+  ②将“人话”转换成AI能够理解的语言之后，U-net会对随机种子生成的噪声图进行引导，来指导去噪的方向，找出需要改变的地方并给出改变的数据。我们之前所设置的steps数值就是去噪的次数，所选择的采样器、CFG等参数也是在这个阶段起作用的。（简单的说就是U-net死盯着乱码图片，看他像什么，并给出更改的建议，使得图像更加想这个东西）
+  ③一张图片中包含的信息是非常多的，直接计算会消耗巨量的资源，所以从一开始上面的这些计算都是在一个比较小的潜空间进行的。而在潜空间的数据并不是人能够正常看到的图片。这个时候就需要VAE用来将潜空间“翻译”成人能够正常看到的图片的（简单的说就是把AI输出翻译成人能看到的图片）
+  经过以上三个步骤，就实现了“提示词→图片”的转化，也就是AI画出了我们想要的图片。这三个步骤也就对应了模型的三个组成部分：clip、unet、VAE
+
 
 ---
 
@@ -18,6 +31,7 @@
 
 
 - <details><summary>身体</summary>
+
   1. 状态
   2. 皮肤
   3. 胸
@@ -40,6 +54,7 @@
   </details>
 
 - <details><summary>五官特点</summary>
+
   1. 眉毛
   2. 眼睛
   3. 耳朵
@@ -49,6 +64,7 @@
 
 
 - <details><summary>服装穿搭</summary>
+
   1. 外套
   2. 裤子
   3. 鞋子
@@ -225,7 +241,7 @@
 
 
 
-
+ss
 
 </details>
 
@@ -241,8 +257,25 @@
 <!-- ![interface_2] -->
 ![Snipaste_2024-12-14_22-18-05.png][Snipaste_2024-12-14_22-18-05.png]
 
-# 图生图
-原理：通过增加噪声的方法抽象化一张又一张图片，通过去噪的方法具象化一张又一张图片
+### VAE：AI原本的生成图不是人能看的正常图片，VAE的作用就是把AI的这部分输出转化为人能够看的图片
+
+---
+### 低分辨率出图后再进行以下操作
+## 图生图
+### ==原理：通过增加噪声的方法抽象化一张又一张图片，通过去噪的方法具象化一张又一张图片==
+
+### 重绘幅度：重绘幅度越大越接近模型，重绘幅度越小越接近原图
+
+## 三种放大修复方案
+1. ### 高分辨率修复hires.fix (本质就是把低分辨率图像图生图，先生成一张低分辨率图像，在根据该图生成一张高分辨率图像)
+2. ### 图生图里面调比例，放大算法在设置里找到!\[interface_3]![Snipaste_2024-12-15_14-08-12.png]，脚本放大!\[interface_4]![Snipaste_2024-12-15_14-34-01.png]
+3. ### 附加功能：可以理解为一个重绘幅度为0的高清修复
+
+
+## 关于[c站]
+
+!\[c站_]
+![Snipaste_2024-12-15_12-15-47.png]
 
 [地址]: https://www.bilibili.com/video/BV1As4y127HW/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=ca0a9d1a85af002ad62c5c3e45f402c3
 
@@ -254,3 +287,16 @@
 
 [interface_2]: /image/Snipaste_2024-12-14_22-18-05.png
 [Snipaste_2024-12-14_22-18-05.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-14_22-18-05.png
+
+[interface_3]: /image\Snipaste_2024-12-15_14-08-12.png
+[Snipaste_2024-12-15_14-08-12.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-15_14-08-12.png
+
+[interface_4]: /image\Snipaste_2024-12-15_14-34-01.png
+[Snipaste_2024-12-15_14-34-01.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-15_14-34-01.png
+
+[c站]: https://civitai.com/
+
+[c站_]: /image\Snipaste_2024-12-15_12-15-47.png
+[Snipaste_2024-12-15_12-15-47.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-15_12-15-47.png
+
+[引用1]: https://docs.qq.com/doc/p/4d05d5a8f1282662dd5b7e526ecfe8d8ecbcee17?nlc=1
