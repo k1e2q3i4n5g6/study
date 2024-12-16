@@ -279,7 +279,7 @@ ss
 3. ### 附加功能：可以理解为一个重绘幅度为0的高清修复
 
 
-## 关于差异随机种子
+## 1. 关于差异随机种子
 ### 给出随机种子A，差异随机种子B，就是两个不同的种子，差异强度越高种子A就会越像种子B?，单独调整宽度或高度都没用？可用于融合？
 
 !\[差异随机种子1]
@@ -290,6 +290,10 @@ ss
 
 !\[差异随机种子3]
 ![Snipaste_2024-12-16_13-27-27.png]
+
+### 2.关于controlnet
+### [controlnet模型]
+### 开启预览需要下载[controlnet预处理器]放到extensions\sd-webui-controlnet\annotator文件夹下
 ## 关于[c站]
 
 !\[c站_]
@@ -333,3 +337,9 @@ ss
 
 [差异随机种子3]: /image\Snipaste_2024-12-16_13-27-27.png
 [Snipaste_2024-12-16_13-27-27.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-16_13-27-27.png
+
+
+[controlnet模型]: https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main
+
+[controlnet预处理器]: https://huggingface.co/lllyasviel/Annotators/tree/main
+
