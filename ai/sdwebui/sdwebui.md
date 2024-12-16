@@ -9,6 +9,13 @@
   - ### 负面提示词不是越多越好，负面提示词多少都会对画面产生影响
 
 ### [原理][引用1]：
+### 关于自己的理解：
+### 输入的提示词会被文本编辑器(clip)转换成可以被u-net读取的embedding形式，潜空间里u-net读取到文本后根据采样方法、CFG、controlnet等为随机种子(seed)生成的噪声图减去预测到的噪声得出一张图像样本，在潜空间里多次(steps)重复此过程后最终生成一张潜空间图片，潜空间里的图片需要VAE进行转码到像素空间才可以被人看到。
+!\[原理1]
+![Snipaste_2024-12-16_12-40-07.png]
+!\[原理2]
+![Snipaste_2024-12-16_12-47-41.png]
+### 更正：图二是下边应该是使用当前种子生成噪声图
   - > ①首先我们输入的提示词（prompt）会首先进入TE（TextEncoder），而clip就是stable diffusion所使用的TE。TE这部分的作用就是把tag转化成U-net网络能理解的embedding形式，当然了，我们平时用的emb模型，就是一种自然语言很难表达的promot。（简单的说就是将“人话”转换成AI能够理解的语言）
   ②将“人话”转换成AI能够理解的语言之后，U-net会对随机种子生成的噪声图进行引导，来指导去噪的方向，找出需要改变的地方并给出改变的数据。我们之前所设置的steps数值就是去噪的次数，所选择的采样器、CFG等参数也是在这个阶段起作用的。（简单的说就是U-net死盯着乱码图片，看他像什么，并给出更改的建议，使得图像更加想这个东西）
   ③一张图片中包含的信息是非常多的，直接计算会消耗巨量的资源，所以从一开始上面的这些计算都是在一个比较小的潜空间进行的。而在潜空间的数据并不是人能够正常看到的图片。这个时候就需要VAE用来将潜空间“翻译”成人能够正常看到的图片的（简单的说就是把AI输出翻译成人能看到的图片）
@@ -272,6 +279,17 @@ ss
 3. ### 附加功能：可以理解为一个重绘幅度为0的高清修复
 
 
+## 关于差异随机种子
+### 给出随机种子A，差异随机种子B，就是两个不同的种子，差异强度越高种子A就会越像种子B?，单独调整宽度或高度都没用？可用于融合？
+
+!\[差异随机种子1]
+![Snipaste_2024-12-16_13-19-55.png]
+
+!\[差异随机种子2]
+![Snipaste_2024-12-16_13-26-01.png]
+
+!\[差异随机种子3]
+![Snipaste_2024-12-16_13-27-27.png]
 ## 关于[c站]
 
 !\[c站_]
@@ -300,3 +318,18 @@ ss
 [Snipaste_2024-12-15_12-15-47.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-15_12-15-47.png
 
 [引用1]: https://docs.qq.com/doc/p/4d05d5a8f1282662dd5b7e526ecfe8d8ecbcee17?nlc=1
+
+[原理1]: /image\Snipaste_2024-12-16_12-40-07.png
+[Snipaste_2024-12-16_12-40-07.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-16_12-40-07.png
+
+[原理2]: /image\Snipaste_2024-12-16_12-40-07.png
+[Snipaste_2024-12-16_12-47-41.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-16_12-47-41.png
+
+[差异随机种子1]: /image\Snipaste_2024-12-16_13-19-55.png
+[Snipaste_2024-12-16_13-19-55.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-16_13-19-55.png
+
+[差异随机种子2]: /image\Snipaste_2024-12-16_13-26-01.png
+[Snipaste_2024-12-16_13-26-01.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-16_13-26-01.png
+
+[差异随机种子3]: /image\Snipaste_2024-12-16_13-27-27.png
+[Snipaste_2024-12-16_13-27-27.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-16_13-27-27.png
