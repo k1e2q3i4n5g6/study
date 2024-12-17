@@ -259,10 +259,24 @@ ss
 ### 初识别界面
 
 <!-- ![interface_1] -->
-![Snipaste_2024-12-14_21-47-52.png][Snipaste_2024-12-14_21-47-52.png]
+![Snipaste_2024-12-14_21-47-52.png]
 
 <!-- ![interface_2] -->
-![Snipaste_2024-12-14_22-18-05.png][Snipaste_2024-12-14_22-18-05.png]
+![Snipaste_2024-12-14_22-18-05.png]
+
+
+### embedding模型：可以被理解为一组提示词的集合(打包提示词)，用来减轻用户编写提示词的麻烦
+
+### 让sd生成某游戏的某个角色，正常要输入大量的提示词加以修改，才能达到我们想要的效果，使用embedding模型就不用这么麻烦，只需要调用它就可以。
+
+> embedding是针对textencode进行预训练的权重集合
+> lora是针对textencode+u-net进行预训练的权重集合
+### lora模型：？提取特征信息？参考对模型的微调、矩阵知识、全量微调、Lora训练少量参数
+
+#### 一般来说：embedding和lora可以做同一件事时优先选lora
+
+---
+
 
 ### VAE：AI原本的生成图不是人能看的正常图片，VAE的作用就是把AI的这部分输出转化为人能够看的图片
 
@@ -293,7 +307,13 @@ ss
 
 ### 2.关于controlnet
 ### [controlnet模型]
-### 开启预览需要下载[controlnet预处理器]放到extensions\sd-webui-controlnet\annotator文件夹下
+### 开启预览需要下载[controlnet预处理器]放到extensions\sd-webui-controlnet\annotator\downsloads文件夹下对应预处理器名称的文件夹即可(一般需要新建文件夹名为对应预处理器名称)
+### ==depth==
+### 该预处理器传递的是空间信息，黑色为远距离，白色为近距离
+
+
+
+
 ## 关于[c站]
 
 !\[c站_]
