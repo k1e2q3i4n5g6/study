@@ -310,6 +310,8 @@ ss
 ### 开启预览需要下载[controlnet预处理器]放到extensions\sd-webui-controlnet\annotator\downsloads文件夹下对应预处理器名称的文件夹即可(一般需要新建文件夹名为对应预处理器名称)
 ### ==depth==
 ### 该预处理器传递的是空间信息，黑色为远距离，白色为近距离
+### ==openpose==
+### 该预处理器用于姿势、面部表情、手、当涉及到肢体交叠时准确性会降低，可以结合depth使用
 
 
 
