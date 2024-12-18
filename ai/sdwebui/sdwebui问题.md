@@ -1,7 +1,7 @@
 
 # <details><summary><span id='stop1'>1. 已解决</span></summary>1. [跳转到已解决仍有疑问](#stop2)<br>2. [跳转到未解决](#stop3)</br></details>
 ### [问题1.1](#1.1)
-
+### [问题1.1](#1.2)
 ==下面是模板==
 
 <h2 id='1.1'>问题描述</h2>
@@ -14,6 +14,28 @@
 
 ### 思考过程：
 
+***
+
+### 解决办法：
+
+***
+
+### 补充：
+
+***
+
+### [返回已解决](#stop1)
+
+
+<h2 id='1.2'>问题描述</h2>
+
+***
+
+### 产生原因：使用clip反推提示词时出现以下报错!\[clip报错]![Snipaste_2024-12-18_17-51-02.png]
+
+***
+
+### 思考过程：没有思考直接去搜索，没解决，最后回来看报错提示，找源码，因为是下载的问题想必应该有缓存文件，命令行里也看不出在下的什么，直接根据提示去找clip相关的东西最后找到一个clip_model_name的变量指向vit-l/14!\[clip报错1]![Snipaste_2024-12-18_20-13-33.png]在interrogate.py里并没有找到指向它的链接，去提示里给的第二个文件里找到了下载地址!\[clip报错2]![Snipaste_2024-12-18_20-14-48.png]下载来放哪里，最后就是要找下载了百分之一的缓存文件在哪文件里搜到在用户目录下C:\Users\mwh12\.cache\clip!\[clip报错3]![Snipaste_2024-12-18_20-30-49.png]
 ***
 
 ### 解决办法：
@@ -252,3 +274,15 @@
 ***
 
 ### [返回已解决](#stop1)
+
+[clip报错]: /image\Snipaste_2024-12-18_17-51-02.png
+[Snipaste_2024-12-18_17-51-02.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-18_17-51-02.png
+
+[clip报错1]: /image/Snipaste_2024-12-18_20-13-33.png
+[Snipaste_2024-12-18_20-13-33.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-18_20-13-33.png
+
+[clip报错2]: /image\Snipaste_2024-12-18_20-14-48.png
+[Snipaste_2024-12-18_20-14-48.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-18_20-14-48.png
+
+[clip报错3]: /image\Snipaste_2024-12-18_20-30-49.png
+[Snipaste_2024-12-18_20-30-49.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-18_20-30-49.png
