@@ -1,4 +1,4 @@
-已忘：静音、控制器、宽度、高度、删除线、文本倾斜、href、target=_blank
+已忘：静音、高度、href、target=_blank
 
 
 # html：
