@@ -231,7 +231,7 @@
 ### [问题描述3.1](#3.1)
 ### [3.2 lora?全量微调？矩阵？](#3.2)
 ### [3.3 controlnet的openpose预处理器预览出现黑图](#3.3)
-
+### [3.4高清放大算法选择]
 ***
 
 <h2 id='3.1'>问题描述</h2>
@@ -295,6 +295,48 @@
 ***
 
 ### [返回未解决](#stop3)
+
+<h2 id='3.4'>高清放大算法选择</h2>
+
+***
+
+### 产生原因：1.生成过高分辨率可能会爆显存，2.生图时间过久
+
+***
+
+### 思考过程：
+
+### 原图分辨率512*512
+![高清放大原图]
+### 放大后分辨率1024*1024
+### 方法一：附加功能(不涉及重扩散)
+![附加功能放大]
+### 方法二：图生图重绘幅度0.4
+![图生图]
+### 方法三：高分辨率修复(hires.fix)重绘幅度0.4，放大算法R-ESRGAN 4x+ Anime6B,这个方法=图生图+附加功能的不调分辨率只调放大算法？
+![高分辨率修复(hires.fix)]
+### 方法四：tiled diffusion插件文生图or图生图
+![tiled diffusion插件]
+
+### 方法五：controlnet_tile文生图or图生图？
+
+### 方法六：controlnet_tile+controlnet_reference文生图or图生图
+![controlnet_tile+controlnet_reference]
+
+### 方法六：sd upscale脚本放大
+![sd upscale脚本放大]
+
+***
+
+### 补充：
+
+***
+
+### [返回未解决](#stop3)
+
+
+
+
 [clip报错]: /image\Snipaste_2024-12-18_17-51-02.png
 [Snipaste_2024-12-18_17-51-02.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-18_17-51-02.png
 
@@ -306,3 +348,26 @@
 
 [clip报错3]: /image\Snipaste_2024-12-18_20-30-49.png
 [Snipaste_2024-12-18_20-30-49.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-18_20-30-49.png
+
+[高清放大原图]: /image\00000-3563668527.png
+
+
+[附加功能放大]: /image\00000.png
+
+
+
+[图生图]: /image\00001-3563668527.png
+
+
+[高分辨率修复(hires.fix)]: /image\00296-3563668527.png
+
+[tiled diffusion插件]: /image\100000-3563668527.png
+
+[controlnet_tile]: /
+
+
+
+[controlnet_tile+controlnet_reference]: /
+
+
+[sd upscale脚本放大]: /image\200000-3563668527.png
