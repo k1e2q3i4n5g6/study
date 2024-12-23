@@ -307,24 +307,29 @@
 ### 思考过程：
 
 ### 原图分辨率512*512
-![高清放大原图]
+!\[高清放大原图]
+![00000-3563668527.png]
 ### 放大后分辨率1024*1024
 ### 方法一：附加功能(不涉及重扩散)
-![附加功能放大]
-### 方法二：图生图重绘幅度0.4
-![图生图]
+!\[附加功能放大]
+![00000.png]
+### 方法二：图生图重绘幅度0.4，(图生图的放大算法可以在设置里面开启)
+!\[图生图]
+![00001-3563668527.png]
 ### 方法三：高分辨率修复(hires.fix)重绘幅度0.4，放大算法R-ESRGAN 4x+ Anime6B,这个方法=图生图+附加功能的不调分辨率只调放大算法？
-![高分辨率修复(hires.fix)]
-### 方法四：tiled diffusion插件文生图or图生图
-![tiled diffusion插件]
-
-### 方法五：controlnet_tile文生图or图生图？
+!\[高分辨率修复(hires.fix)]
+![00296-3563668527.png]
+### 方法四：tiled diffusion插件图生图
+!\[tiled diffusion插件]
+![100000-3563668527.png]
+### 方法五：controlnet_tile图生图？
 
 ### 方法六：controlnet_tile+controlnet_reference文生图or图生图
-![controlnet_tile+controlnet_reference]
+!\[controlnet_tile+controlnet_reference]
 
 ### 方法六：sd upscale脚本放大
-![sd upscale脚本放大]
+!\[sd upscale脚本放大]
+![200000-3563668527.png]
 
 ***
 
@@ -350,18 +355,20 @@
 [Snipaste_2024-12-18_20-30-49.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/Snipaste_2024-12-18_20-30-49.png
 
 [高清放大原图]: /image\00000-3563668527.png
+[00000-3563668527.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/00000-3563668527.png
 
 
 [附加功能放大]: /image\00000.png
-
-
+[00000.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/00000.png
 
 [图生图]: /image\00001-3563668527.png
-
+[00001-3563668527.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/00001-3563668527.png
 
 [高分辨率修复(hires.fix)]: /image\00296-3563668527.png
+[00296-3563668527.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/00296-3563668527.png
 
 [tiled diffusion插件]: /image\100000-3563668527.png
+[100000-3563668527.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/100000-3563668527.png
 
 [controlnet_tile]: /
 
@@ -371,3 +378,4 @@
 
 
 [sd upscale脚本放大]: /image\200000-3563668527.png
+[200000-3563668527.png]: https://6f124247.cloudflare-imgbed-7p1.pages.dev/file/200000-3563668527.png

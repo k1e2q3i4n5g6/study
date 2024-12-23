@@ -289,9 +289,9 @@ ss
 
 ## 三种放大修复方案
 1. ### 高分辨率修复hires.fix (本质就是把低分辨率图像图生图，先生成一张低分辨率图像，在根据该图生成一张高分辨率图像)
-2. ### 图生图里面调比例，放大算法在设置里找到!\[interface_3]![Snipaste_2024-12-15_14-08-12.png]，脚本放大!\[interface_4]![Snipaste_2024-12-15_14-34-01.png]
+2. ### 图生图里面调比例，放大算法在设置里找到!\[interface_3]![Snipaste_2024-12-15_14-08-12.png]，脚本放大，同时绘制所有区块!\[interface_4]![Snipaste_2024-12-15_14-34-01.png]
 3. ### 附加功能：可以理解为一个重绘幅度为0的高清修复
-4. ### tiled diffusion插件放大(内置一个释放显存选项不知道对使用controlnet预处理后显存居高不下有没有用)在文生图中使用tiled插件时需要下载关于面部修复的模型我这里使用的是![面部修复模型codeformer]，但未使用tiled插件时并未报错
+4. ### tiled diffusion插件放大，和sd upscale脚本分块放大不同的是tiled插件是画完一个一个图块再到下一个图块(内置一个释放显存选项不知道对使用controlnet预处理后显存居高不下有没有用)在文生图中使用tiled插件时需要下载关于面部修复的模型我这里使用的是![面部修复模型codeformer]，但未使用tiled插件时并未报错
 - 1. ## Codeformer\codeformer.pth、
 - 2. ## GFPGAN\detection_Resnet50_Final.pth、
 - 3. ## GFPGAN\parsing_parsenet.pth
