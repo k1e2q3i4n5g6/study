@@ -25,7 +25,7 @@ ctrl+enter换行、注释和删除注释快捷键ctrl+/
 \<body>主体，给用户看的</body>
 \<p>段落标签\</p>
 \<h1~6> 标题标签：h标签有1到6级数字越大显示的标题越小\</h1~6>
-\<a href="地址，属性值写#表示空链接" target=_blank>超链接标签\</a>
+\<a href="地址，属性值写#表示空链接，#也可以在其他有id属性标签id值的前边起到页内跳转的作用" target=_blank>超链接标签\</a>
 target=_blank：在新窗口打开链接
 \<audio src="地址，支持mp3，ogg，wav">音频标签\</audio>
 \<video src="地址"，支持mp4，webm，ogg>

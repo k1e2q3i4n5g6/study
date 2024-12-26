@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><center><strong>stable diffusion</strong></center></h1>
+    <details><summary><h3>目录</h3></summary>
+    <h4><a href="#yuanli">AI生图原理</a></h4></details>
+    <h4>AI生图原理</h4>
+    <img src="原理图片地址" alt="这是一张有关生图原理的图片"><br>
+    <span id="yuanli">输入的提示词被clip文本编辑器转换成u-net可读取的embedding形式，在潜空间里u-net读取到信息后根据采样方法、cfg、cotrolnet等去除从随机种子生成的噪声图里预测到的噪声，得到一张图片样本，潜空间内的图片和像素空间里的图片缩放比例为1：8，一张512*512的图片在潜空间里只有64*64，u-net去除预测到的噪声多少次就叫迭代次数迭代次数，去除噪声的图片需要经过vae解码成像素空间里的图片，图生图是加入噪声再去除噪声，像素空间里的图片被vae编码成潜空间里的图片根据重绘幅度添加噪声？加噪和去噪的次数(迭代步数)是共享还是独立的？输入的提示词经过clip文本编辑器转化成embedding形式被u-net读取后直接在已经加过噪声的图片去除？之后再由vae解码到像素空间</span>
+    
+</body>
+</html>
