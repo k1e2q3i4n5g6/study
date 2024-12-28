@@ -3,6 +3,7 @@
 
 ### [关于controlnet](#controlnet)
 ### [高清修复](#高清修复)
+### [脚本的使用](#脚本的使用)
 ## <ins>提示词</ins>
 - ### ==提示词权重：==
   - ### 提示词越靠前权重越大
@@ -299,6 +300,23 @@ ss
 - 2. ## GFPGAN\detection_Resnet50_Final.pth、
 - 3. ## GFPGAN\parsing_parsenet.pth
 5. ### controlnet_tile放大
+
+## <span id='脚本的使用'>脚本</span>
+### 1. 提示词矩阵
+### 用'|'分割
+### prompts: 1girl，|purple_hair|black_hair,
+
+|||
+|:-:|:-:|
+|<h3>1girl</h3>|<h3>1girl,purple_hair</h3>|
+|<h3>1girl,black_hair</h3>|<h3>1girl,parsing_parsenet,black_hair</h3>|
+
+
+### 2. 从文本框或文件载入提示词
+>--prompt "1girl" --sampler_name "DPM++SED karras" --seed 数字不用双引号
+### 3. xyz图表(控制变量)
+### values常用语法：
+<h3>1-5：每次加一<br>1-5(+2)每次加二，10-5(-3)每次减三<br>1-10[5]分五组，0.0-1.0[6]分六祖
 
 
 ## 1. 关于差异随机种子
