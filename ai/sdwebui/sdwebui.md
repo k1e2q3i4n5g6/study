@@ -4,6 +4,7 @@
 ### [关于controlnet](#controlnet)
 ### [高清修复](#高清修复)
 ### [脚本的使用](#脚本的使用)
+### [通配符](#通配符)
 ## <ins>提示词</ins>
 - ### ==提示词权重：==
   - ### 提示词越靠前权重越大
@@ -318,7 +319,13 @@ ss
 ### values常用语法：
 <h3>1-5：每次加一<br>1-5(+2)每次加二，10-5(-3)每次减三<br>1-10[5]分五组，0.0-1.0[6]分六祖
 
+## <span id='通配符'>通配符</span>
+### {A|B}prompt = Aprompt Bprompt
+### 嵌套 {C|D}prompt_2 若C={A|B}prompt  <br>则{C|D}prompt_2= Apromptprompt_2 Bpromptprompt_2 Dprompt_2
+### 使用通配符文件hair_color
+### \_\_hair_color__，<br>若Max generations为0，是把hair_color.txt文件里的颜色全部生成一遍，<br>Max generations为2，是把hair_color.txt文件里的颜色选两个出来各生成一遍。<br>取消勾选组合生成时{2\$\$__hair_color__}是把hair_color.txt文件里的颜色选两个颜色绘制<br>{2-4\$\$\_\_hair_color__}表示从hair_color.txt文件里的颜色选二到四个出来绘制，
 
+让它们带有and的关系：{2-4\$\$ and $$\_\_hair_color__}
 ## 1. 关于差异随机种子
 ### 给出随机种子A，差异随机种子B，就是两个不同的种子，差异强度越高种子A就会越像种子B?，单独调整宽度或高度都没用？可用于融合？
 
