@@ -10,6 +10,7 @@
   - ### 提示词越靠前权重越大
   - ### <ins>(prompts:1.5)1.5倍权重、(((prompts))) 1.1*1.1*1.1倍、{{prompts}} 1.05*1.05倍、\[\[\[prompts]]] 0.9*\*0.9*0.9倍</ins>
   - ### 并列：混合|混合 prompts、次序：[先生成|后生成]prompts、进程：(达到百分之八十前生成:达到百分之八十后生成:0.8)、[到百分之八十停止生成prompts::0.8]
+  - ### [[A::0.8]:0.2]=[[A:0.2]::0.8]，进程到百分之二十开始绘制百分之八十停止，大于等于1的整数来表示步数，[[A::1]:0.2]≠[A:0.2]
   - > ### BREAK这个词会直接占满当前剩下的token，后面的提示词将在第二段clip中处理。AI在生成图像的时候会将一些提示词的特征放到其他的物品上，例如我在提示词中写了white clothes和Flower background，那么很有可能在衣服上出现花的装饰。如果我们不想在衣服上出现花的装饰，那么比较简单的方法就是把这两个词放到两段clip中处理
   - ### 负面提示词不是越多越好，负面提示词多少都会对画面产生影响
 
@@ -321,11 +322,13 @@ ss
 
 ## <span id='通配符'>通配符</span>
 ### {A|B}prompt = Aprompt Bprompt
-### 嵌套 {C|D}prompt_2 若C={A|B}prompt  <br>则{C|D}prompt_2= Apromptprompt_2 Bpromptprompt_2 Dprompt_2
+### 嵌套 {C|D}prompt_2 若C={A|B}prompt  <br>则{C|D}prompt_2= Apromptprompt_2， Bpromptprompt_2， Dprompt_2
+### {C D}prompt_2=Aprompt Dprompt_2，Bpromptprompt_2 Dprompt_2
+     
 ### 使用通配符文件hair_color
 ### \_\_hair_color__，<br>若Max generations为0，是把hair_color.txt文件里的颜色全部生成一遍，<br>Max generations为2，是把hair_color.txt文件里的颜色选两个出来各生成一遍。<br>取消勾选组合生成时{2\$\$__hair_color__}是把hair_color.txt文件里的颜色选两个颜色绘制<br>{2-4\$\$\_\_hair_color__}表示从hair_color.txt文件里的颜色选二到四个出来绘制，
-
-让它们带有and的关系：{2-4\$\$ and $$\_\_hair_color__}
+让它们带有and的关系：{2-4\$\$ and $$\_\_hair_color__}、
+and或+
 ## 1. 关于差异随机种子
 ### 给出随机种子A，差异随机种子B，就是两个不同的种子，差异强度越高种子A就会越像种子B?，单独调整宽度或高度都没用？可用于融合？
 
